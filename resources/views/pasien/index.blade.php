@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row pb-3">
 		<div class="col-auto">
-			<a href="{{url('/dokter/create')}}" class="btn btn-primary">Tambah</a>
+			<a href="{{url('/pasien/create')}}" class="btn btn-primary">Tambah</a>
 		</div>
 	</div>
 	<div class="row">
@@ -13,29 +13,27 @@
 				<thead>
 					<tr>
 						<th scope="col">#</th>
-						<th scope="col">NIP</th>
+						<th scope="col">NIK</th>
 						<th scope="col">Nama</th>
+						<th scope="col">Tanggal Lahir</th>
 						<th scope="col">Alamat</th>
-						<th scope="col">Jabatan</th>
-						<th scope="col">Poli</th>
 						<th scope="col">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					@foreach ($dokters as $dok)
+					@foreach ($pasiens as $pas)
 					<tr>
-						<th scope="row">{{$dok->id}}</th>
-						<td>{{$dok->nip}}</td>
-						<td>{{$dok->nama}}</td>
-						<td>{{$dok->alamat}}</td>
-						<td>{{$dok->jabatan}}</td>
-						<td>{{$dok->poli}}</td>
+						<th scope="row">{{$pas->id}}</th>
+						<td>{{$pas->nik}}</td>
+						<td>{{$pas->nama}}</td>
+						<td>{{$pas->tanggal_lahir}}</td>
+						<td>{{$pas->alamat}}</td>
 						<td>
 							<span>
-								<form action="{{url('/dokter',$dok->id)}}" method="POST">
+								<form action="{{url('/pasien',$pas->id)}}" method="POST">
 									@method('DELETE')
 									@csrf
-									<a href="{{url('dokter', $dok->id)}}/edit" class="btn btn-warning">Edit</a>
+									<a href="{{url('pasien', $pas->id)}}/edit" class="btn btn-warning">Edit</a>
 									<input type="submit" class="btn btn-danger" value="Hapus" />
 								</form>
 							</span>

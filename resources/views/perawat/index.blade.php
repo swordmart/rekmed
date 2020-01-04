@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row pb-3">
 		<div class="col-auto">
-			<a href="{{url('/dokter/create')}}" class="btn btn-primary">Tambah</a>
+			<a href="{{url('/perawat/create')}}" class="btn btn-primary">Tambah</a>
 		</div>
 	</div>
 	<div class="row">
@@ -17,25 +17,23 @@
 						<th scope="col">Nama</th>
 						<th scope="col">Alamat</th>
 						<th scope="col">Jabatan</th>
-						<th scope="col">Poli</th>
 						<th scope="col">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					@foreach ($dokters as $dok)
+					@foreach ($perawats as $per)
 					<tr>
-						<th scope="row">{{$dok->id}}</th>
-						<td>{{$dok->nip}}</td>
-						<td>{{$dok->nama}}</td>
-						<td>{{$dok->alamat}}</td>
-						<td>{{$dok->jabatan}}</td>
-						<td>{{$dok->poli}}</td>
+						<th scope="row">{{$per->id}}</th>
+						<td>{{$per->nip}}</td>
+						<td>{{$per->nama}}</td>
+						<td>{{$per->alamat}}</td>
+						<td>{{$per->jabatan}}</td>
 						<td>
 							<span>
-								<form action="{{url('/dokter',$dok->id)}}" method="POST">
+								<form action="{{url('/perawat',$per->id)}}" method="POST">
 									@method('DELETE')
 									@csrf
-									<a href="{{url('dokter', $dok->id)}}/edit" class="btn btn-warning">Edit</a>
+									<a href="{{url('perawat', $per->id)}}/edit" class="btn btn-warning">Edit</a>
 									<input type="submit" class="btn btn-danger" value="Hapus" />
 								</form>
 							</span>

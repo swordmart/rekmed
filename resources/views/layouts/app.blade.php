@@ -38,16 +38,16 @@
 					<!-- Left Side Of Navbar -->
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="/dokter">Dokter</a>
+							<a class="nav-link" href="{{url('/antrian')}}">Antrian</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Perawat</a>
+							<a class="nav-link" href="{{url('/dokter')}}">Dokter</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Pasien</a>
+							<a class="nav-link" href="{{url('/perawat')}}">Perawat</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Antrian</a>
+							<a class="nav-link" href="{{url('/pasien')}}">Pasien</a>
 						</li>
 					</ul>
 

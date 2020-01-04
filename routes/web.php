@@ -20,3 +20,8 @@ Auth::routes(['register'=>false]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/dokter', 'DokterController');
+Route::resource('/perawat', 'PerawatController');
+Route::resource('/pasien', 'PasienController');
+
+Route::get('/antrian', 'AntrianController@index');
+Route::post('/antri', 'AntrianController@antri');

@@ -4,18 +4,18 @@
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<h5>Tambah Dokter</h5>
+			<h5>Tambah Pasien</h5>
 			<hr>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-6">
-			<form action="{{url('/dokter')}}" method="POST">
+			<form action="{{url('/pasien')}}" method="POST">
 				@method('POST')
 				@csrf
 				<div class="form-group">
-					<label>NIP</label>
-					<input type="text" class="form-control" name="nip">
+					<label>NIK</label>
+					<input type="text" class="form-control" name="nik">
 				</div>
 				<div class="form-group">
 					<label>Nama</label>
@@ -26,12 +26,8 @@
 					<textarea name="alamat" rows="5" class="form-control"></textarea>
 				</div>
 				<div class="form-group">
-					<label>Jabatan</label>
-					<input type="text" class="form-control" name="jabatan">
-				</div>
-				<div class="form-group">
-					<label>Poli</label>
-					<input type="text" class="form-control" name="poli">
+					<label>Tanggal Lahir</label>
+					<input type="date" class="form-control" name="tanggal_lahir">
 				</div>
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>

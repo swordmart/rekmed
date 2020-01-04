@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Dokter;
+use App\Perawat;
 
-class DokterController extends Controller
+class PerawatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class DokterController extends Controller
      */
     public function index()
     {
-        $dokters = Dokter::all();
-        return view('dokter.index')->with('dokters', $dokters);
+        $perawats = Perawat::all();
+        return view('perawat.index')->with('perawats', $perawats);
     }
 
     /**
@@ -25,7 +25,7 @@ class DokterController extends Controller
      */
     public function create()
     {
-        return view('dokter.create');
+        return view('perawat.create');
     }
 
     /**
@@ -36,14 +36,13 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
-        $dokter = new Dokter();
-        $dokter->nip = $request->nip;
-        $dokter->nama = $request->nama;
-        $dokter->alamat = $request->alamat;
-        $dokter->jabatan = $request->jabatan;
-        $dokter->poli = $request->poli;
-        $dokter->save();
-        return redirect(url('/dokter'));
+        $perawat = new Perawat();
+        $perawat->nip = $request->nip;
+        $perawat->nama = $request->nama;
+        $perawat->alamat = $request->alamat;
+        $perawat->jabatan = $request->jabatan;
+        $perawat->save();
+        return redirect(url('/perawat'));
     }
 
     /**
@@ -65,8 +64,8 @@ class DokterController extends Controller
      */
     public function edit($id)
     {
-        $dokter = Dokter::find($id);
-        return view('dokter.edit')->with('dokter', $dokter);
+        $perawat = Perawat::find($id);
+        return view('perawat.edit')->with('perawat', $perawat);
     }
 
     /**
@@ -78,14 +77,13 @@ class DokterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dokter = Dokter::find($id);
-        $dokter->nip = $request->nip;
-        $dokter->nama = $request->nama;
-        $dokter->alamat = $request->alamat;
-        $dokter->jabatan = $request->jabatan;
-        $dokter->poli = $request->poli;
-        $dokter->save();
-        return redirect(url('/dokter'));
+        $perawat = Perawat::find($id);
+        $perawat->nip = $request->nip;
+        $perawat->nama = $request->nama;
+        $perawat->alamat = $request->alamat;
+        $perawat->jabatan = $request->jabatan;
+        $perawat->save();
+        return redirect(url('/perawat'));
     }
 
     /**
@@ -96,7 +94,7 @@ class DokterController extends Controller
      */
     public function destroy($id)
     {
-        Dokter::destroy($id);
-        return redirect(url('/dokter'));
+        Perawat::destroy($id);
+        return redirect(url('/perawat'));
     }
 }
