@@ -15,19 +15,13 @@ class CreateRekmedsTable extends Migration
     {
         Schema::create('rekmeds', function (Blueprint $table) {
             $table->bigIncrements('id');
-            /**
-             * dokter
-             * pasien
-             * diagnosa
-             * tanggal
-             * poli
-             */
             $table->string('dokter');
             $table->string('pasien');
             $table->string('diagnosa');
             $table->date('tanggal');
             $table->string('poli');
             $table->string('resep');
+            $table->tinyInteger('stage')->default(1);
             $table->timestamps();
         });
     }

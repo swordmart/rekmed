@@ -24,7 +24,11 @@
 					@foreach ($pasiens as $pas)
 					<tr>
 						<th scope="row">{{$pas->id}}</th>
-						<td>{{$pas->nik}}</td>
+						<td>
+							<a href="{{url('pasien',$pas->nik)}}">
+								{{$pas->nik}}
+							</a>
+						</td>
 						<td>{{$pas->nama}}</td>
 						<td>{{$pas->tanggal_lahir}}</td>
 						<td>{{$pas->alamat}}</td>

@@ -42,6 +42,9 @@ class PasienController extends Controller
         $pasien->tanggal_lahir = $request->tanggal_lahir;
         $pasien->alamat = $request->alamat;
         $pasien->save();
+        if ($request->get('antri')) {
+            return redirect(url('/antri?nik'.$request->nik));
+        }
         return redirect(url('/pasien'));
     }
 
@@ -53,7 +56,8 @@ class PasienController extends Controller
      */
     public function show($id)
     {
-        //
+        $pasien = Pasien::where("nik", $id)->get()->first();
+        return view('pasien.rekmed')->with('pasien', $pasien);
     }
 
     /**
@@ -96,5 +100,14 @@ class PasienController extends Controller
     {
         Pasien::destroy($id);
         return redirect(url('/pasien'));
+    }
+
+    public function register(Request $request)
+    {
+        $nik = $request->get('nik');
+        if (!$nik) {
+            return redirect('/antrian');
+        }
+        return view('pasien.register')->with('nik', $nik);
     }
 }

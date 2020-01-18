@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'IndexController@index');
+Route::get('/proses/{id}', 'IndexController@proses');
+Route::post('/proses/{id}', 'IndexController@prosesdata');
+Route::get('/prosesdokter/{id}', 'IndexController@prosesdokter');
+Route::post('/prosesdokter/{id}', 'IndexController@prosesdatadokter');
+
 
 Auth::routes(['register'=>false]);
 
@@ -21,7 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/dokter', 'DokterController');
 Route::resource('/perawat', 'PerawatController');
+Route::get('/pasien/register', 'PasienController@register');
 Route::resource('/pasien', 'PasienController');
 
 Route::get('/antrian', 'AntrianController@index');
-Route::post('/antri', 'AntrianController@antri');
+Route::get('/antri', 'AntrianController@antri');

@@ -25,6 +25,6 @@ class CreateTableAntrian extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_antrian');
+        Schema::dropIfExists('antrians');
     }
 }

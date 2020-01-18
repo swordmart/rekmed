@@ -38,7 +38,7 @@
 		</div>
 		<div class="row justify-content-center mt-5">
 			<div class="col-3">
-				<form action="/antri" method="POST">
+				<form action="/antri" method="GET">
 					@csrf
 					<div class="form-group">
 						<label>NIK</label>
